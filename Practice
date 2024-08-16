@@ -1,0 +1,285 @@
+22 Bài luyện python cơ bản
+import math
+
+"""
+Bai 1:
+toan = float(input('nhap diem toan'))
+van = float(input('nhap diem van'))
+anh = float(input('nhap diem anh'))
+if (0<=toan<=10) and (0<=van<=10) and (0<=anh<=10):
+    avg = ((toan+van+anh)/3)
+    print(f'diem tb: {avg}')
+    if avg>=8 and ( (toan>=8) or (van>=8) ) and toan>=6.5 and van>=6.5 and anh>=6.5:
+        print('hoc sinh gioi')
+    else:
+        if avg>=6.5 and ( (toan>=6.5) or (van>=6.5) ) and toan>=5 and van>=5 and anh>=5:
+            print('hoc sinh kha')
+        else:
+            if avg>=5 and ( (toan>=5) or (van>=5) ) and toan>=3.5 and van>=3.5 and anh>=3.5:
+                print('hoc sinh tb')
+            else:
+                if avg >= 3.5 and ((toan >= 3.5) or (van >= 3.5)) and toan >= 2 and van >= 2 and anh >= 2:
+                    print('hoc sinh yeu')
+                else:
+                    print('hoc sinh kem')
+else:
+    print('nhap diem khong hop le!')
+
+Bai 2:
+thang = int(input('nhap thang: '))
+nam = int(input('nhap nam: '))
+
+if thang in (1, 3, 5, 7, 8, 10, 12):
+    print('31 ngay')
+elif thang in (4,6,9,11):
+    print('29 ngay')
+elif thang ==2:
+    if (nam % 4 ==0 and nam % 100 != 0) or (nam % 400 ==0):
+        print('29 ngay')
+    else:
+        print('28 ngay')
+else:
+   print('thang ko hop le')
+
+Bai 3: ax^2 + bx + c =0
+a = float(input('nhap he so a!=0 '))
+b = float(input('nhap he so b '))
+c = float(input('nhap he so c '))
+delta,x1,x2=0,0,0
+if a == 0:
+    print('khong phai pt bac 2')
+else:
+    delta = b*b - 4*a*c
+    print(delta)
+    if delta<0:
+        print('pt vo nghiem')
+    elif delta==0:
+        x1 = -b/(2*a)
+        print(f'pt co nghiem kep: x = {x1}')
+    else:
+        x1 = (-b + math.sqrt(delta)) / (2 * a);
+        x2 = (-b - math.sqrt(delta)) / (2 * a);
+        print(f"Phuong trinh co hai nghiem phan biet: x1 = {x1}, x2 = {x2}")
+
+Bai 4: Nhap vao 3 so: a,b,c. ktra xem a,b,c co canh thanh do dai cua 1 tam giac hay khong
+a = float(input('nhap a '))
+b = float(input('nhap b '))
+c = float(input('nhap c '))
+if a+b>c and a+c>b and b+c>a:
+    print('thanh do dai cua 1 tam giac')
+else:
+    print('ko thanh do dai cua 1 tam giac')
+
+Bai 5: In cac so le duong < 100
+for i in range(1,100):
+    if i % 2 != 0:
+        print(i)
+
+Bai 6: In cac so chan chia het cho 3 < 100
+for i in range(1,100):
+    if i % 2==0 and i%3==0:
+        print(i)
+
+Bai 7: nhap vao N, tinh s = 1+2+3+4+...+n   
+n = int(input('nhap n'))
+s = 0
+for i in range(n+1):
+    s = s+i
+print(s)
+
+Bai 8: nhap a dem so uoc cua a
+count = 0
+n = int(input('nhap n '))
+for i in range(1,n+1):
+    if n % i == 0:
+        count=count+1
+print(count)
+
+Bai 9: nhap a,b in toan bo uoc chung cua a va b
+a = int(input('nhap a '))
+b = int(input('nhap b '))
+so_nho = min(a,b)
+uocchung = []
+for i in range(1,so_nho):
+    if a%i==0 and b%i==0:
+        uocchung.append(i)
+print(uocchung)
+
+Bai 10: ktra xem a co phai la so nguyen to hay ko?
+a = int(input('nhap a '))
+nt=True
+
+if a < 2:
+    print('khong phai la nto')
+for i in range (2,a):
+    if a % i == 0:
+        nt=False
+    break
+if nt:
+    print('a la nguyen to')
+else:
+    print('a ko la nguyen to')
+
+Bai 11: nhap vao 1 day so, ngung nhap khi nhap -1
+sau khi nhap xong, in so lon nhat va be nhat
+n = int(input('nhap n '))
+lst = []
+while n!=-1:
+    lst.append(n)
+    n = int(input('nhap n '))
+print(max(lst))
+print(min(lst))
+
+Bai 12: nhap n, dem xem n co bao nhieu chu so
+n = (input('nhap n '))
+print(len(n))
+
+Bai 13: Nhap n, dem xem n co bao nhieu so chan, co bao nhieu so le
+n = (input('nhap n '))
+chan = 0
+le = 0
+for digit in n:
+    so = int(digit)
+    if so % 2 == 0:
+        chan = chan + 1
+    else:
+        le = le + 1
+print(chan)
+print(le)
+
+Bai 14: nhap n, tong cac chu so n
+n = int(input('nhap n '))
+kq = 0
+for i in range(n+1):
+    kq = kq + i
+print(kq)
+
+Bai 15: nhap vao 1 chuoi, hay in tu dau tien trong chuoi
+n = input('nhap 1 chuoi: ')
+for i in n:
+    print(f"{i}", end = '')
+    if i == ' ':
+        break
+        
+Bai 16: nhap 1 chuoi co 3 so nguyen cach nhau boi dau ,
+        tinh tong 3 so nguyen do
+n = input('nhap 1 chuoi so: ')
+arr = n.split(',')
+kq = 0
+for i in arr:
+    kq = kq + int(i)
+print(kq)
+
+Bai 17: nhap vao 1 chuoi, dem bao nhieu: ky tu in hoa, in thuong, ky tu so
+C1: 
+for i in n:
+    if i >= 'A' and i <= 'Z':
+        inhoa = inhoa + 1
+    elif i >= 'a' and i <= 'z':
+        inthg = inthg + 1
+    elif  i >= '0' and i <= '9':
+        so = so+1
+        
+C2:
+n = input('nhap 1 chuoi: ')
+inhoa = 0
+inthg = 0
+so = 0
+for i in n:
+    if i in '0123456789':
+        so = so+1
+    else:
+        if i == i.upper():
+            inhoa=inhoa+1
+        else:
+            if i == i.lower():
+                inthg=inthg+1
+print(f"in hoa: {inhoa}, in thuong: {inthg}, so: {so}")
+
+Bai 18: nhap vao 1 chuoi, tach toan bo ky tu so ra tinh tong cua chung
+n = input('nhap: ')
+so = 0
+tong = 0
+for i in n:
+    if i in '0123456789':
+        tong = tong + int(i)
+print(tong)
+
+Bai 19: nhap 1 chuoi, ktra xem do co phai la 1 chuoi manh hay ko?
+    1 ky tu dac biet, 1 in hoa, 1 so, 1 chu thuong va do dai > 6
+n = input('nhap: ')
+manh = False
+inhoa = False
+inthg = False
+dacbiet = False
+so = False
+if len(n) > 6:
+    for i in n:
+        if i in '0123456789':
+            so = True
+        elif i in '!@#$%^&*()-+?_=,<>/':
+            dacbiet=True
+        else:
+            if i == i.upper():
+                inhoa=True
+            else:
+                inthg = True
+    manh = inhoa and inthg and dacbiet and so
+if manh:
+    print('mk manh')
+else:
+    print('mk yeu')
+    
+Bai 20: nhap vao C in ra F
+c = float(input('Nhap do c: '))
+f = c * (9/5) + 32
+print(f)
+
+Bai 21: ktra so chinh phuong
+n = float(input('nhap n'))
+sqr = math.sqrt(n)
+if sqr * sqr == n:
+    print('n la so chinh phuong')
+else:
+    print('n ko la so chinh phuong')
+    
+
+Bai 22: nhap vao A, hay tim trong day so fibonaci so lon nhat nhung ko lon bang A
+a = int(input('Nhap A: '))
+if a < 0:
+    a=None
+elif a == 0:
+    a = 0
+f1, f2 = 0, 1
+while f2 <= a:
+    f1, f2 = f2, f1 + f2
+print(f"{f1}")
+"""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
